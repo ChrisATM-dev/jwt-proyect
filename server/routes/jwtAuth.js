@@ -29,7 +29,7 @@ router.post("/register", validInfo, async (req, res) => {
         const bcryptPassword = await bcrypt.hash(password, salt);
 
         //4. enter the new user inside our database
-        const newUser = await pool.query("INSERT INTO users (user_name, user_email, user_password) VALUES ($1, $2, $3) returning *", [name, email, bcryptPassword]);
+        const newUser = await pool.query("INSERT INTO users (user_email, user_password, user_name) VALUES ($1, $2, $3) returning *", [email, bcryptPassword, name]);
         //res.status(201).send("Successfully registered user");, solo me muestra el mensaje pero no pueden haber mas de un status?
         
         //5. genrating our jwt token
@@ -62,12 +62,13 @@ router.post("/login", validInfo, async (req, res) => {
         const validPassword = await bcrypt.compare(password, user.rows[0].user_password);
 
         if(!validPassword){
-            return res.status(401).json("Password or email is incorrect")
+            return res.status(401).json("Password or Email is incorrect")
         }
  
         //4. give hen the jwt token
         const token = jwtGenerator(user.rows[0].user_id);
-        res.json({ token });
+        const id = user.rows[0].user_id;
+        res.json({ token , id});
 
 
     }catch (err){

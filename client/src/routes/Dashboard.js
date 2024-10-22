@@ -15,6 +15,11 @@ export default function Dashboard({setAuth}) {
       const parseRes = await response.json();
       setName(parseRes.user_name)
 
+      if (parseRes.user_name === undefined) {
+        setAuth(false)
+        console.log("cambio en estado")
+      } 
+
       
     } catch (err) {
       console.error(err.message)
@@ -27,10 +32,11 @@ export default function Dashboard({setAuth}) {
     setAuth(false)
     toast.success("Logged out successfully!")
   }
+  
   useEffect(() => {
     getName();
+  })
 
-  },[])
 
 
   return (

@@ -4,9 +4,9 @@ import {BrowserRouter as Router, Routes, Route, Navigate, Link} from "react-rout
 
 import { Button } from 'react-bootstrap';
 
-import Login from './components/Login';
-import Register from './components/Register';
-import Dashboard from './components/Dashboard';
+import Login from './routes/Login';
+import Register from './routes/Register';
+import Dashboard from './routes/Dashboard';
 import { useState, useEffect } from 'react';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -40,6 +40,7 @@ function App() {
 
 
   useEffect( () =>{
+    console.log("entro al effect")
     isAuth();
   }, [])
 
