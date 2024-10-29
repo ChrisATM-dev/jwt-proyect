@@ -17,7 +17,7 @@ router.put("/", authorization, validInfo, async (req, res, next) => {
       [complete, nombre, apellidoP, apellidoM, genero, fechaNacimiento, universidad, carrera, req.user]
     );
 
-    res.json("User data updated successfully");
+    res.json(true);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

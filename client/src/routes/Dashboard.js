@@ -27,7 +27,6 @@ export default function Dashboard({setAuth, setComplete}) {
   }
 
   const logout = (e) => {
-    console.log("entro al logout")
     e.preventDefault();
     localStorage.removeItem("token");
     setAuth(false)

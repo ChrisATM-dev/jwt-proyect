@@ -19,7 +19,6 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isComplete, setIsComplete] = useState(false)
 
-  console.log("entro a la app")
   const setAuth = (boolean) =>{
     setIsAuthenticated(boolean)
   }
@@ -51,7 +50,6 @@ function App() {
 
 
   useEffect( () =>{
-    console.log("entro al effect")
     isAuth();
   }, [isAuthenticated])
 
