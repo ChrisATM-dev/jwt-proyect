@@ -80,12 +80,13 @@ router.post("/login", validInfo, async (req, res) => {
 
 router.get("/is-verify", authorization, async (req, res) => {
     try {
-        res.json(true)
-
+        const user = await pool.query("SELECT is_complete FROM users WHERE user_id = $1", [req.user]);
+        res.json({ verify: true, is_Complete: user.rows[0].is_complete });
     } catch (err) {
         console.error(err.message);
         res.status(500).send("Server Error");
     }
-})
+});
+
 
 module.exports = router;

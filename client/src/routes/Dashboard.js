@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-export default function Dashboard({setAuth}) {
+export default function Dashboard({setAuth, setComplete}) {
   const [name, setName] = useState("");
 
   const getName = async () =>{
@@ -27,9 +27,11 @@ export default function Dashboard({setAuth}) {
   }
 
   const logout = (e) => {
+    console.log("entro al logout")
     e.preventDefault();
     localStorage.removeItem("token");
     setAuth(false)
+    setComplete(false);
     toast.success("Logged out successfully!")
   }
   
