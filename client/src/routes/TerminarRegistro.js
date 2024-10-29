@@ -123,9 +123,6 @@ export default function TerminarRegistro({ setAuth, setComplete }) {
                   <div className="col-12 col-md-4">
                     <input className="form-control" value={carrera} onChange={onChange} type="text" name="carrera" placeholder="carrera"/>
                   </div>
-                  <div className="col-12 col-md-4">
-                    <input className="form-control" value={apellidoM} onChange={onChange} type="text" name="apellidoM" placeholder="Apellido Materno"/>
-                  </div>
                 </div>
 
               </Accordion.Body>

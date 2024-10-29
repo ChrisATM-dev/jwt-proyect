@@ -11,6 +11,9 @@ app.use(cors());
 //register and login routes
 app.use("/auth", require("./routes/jwtAuth"));
 
+//Completar registro
+app.use("/completeRegister", require("./routes/terminarRegistro"));
+
 //dashboar route
 app.use("/dashboard", require("./routes/dashboard"))
 

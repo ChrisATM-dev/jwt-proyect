@@ -3,7 +3,6 @@ const pool = require("../db");
 const bcrypt = require("bcrypt");
 const jwtGenerator = require("../utils/jwtGenerator");
 const validInfo = require("../middleware/validinfo");
-const Authorization = require("../middleware/authorization");
 const authorization = require("../middleware/authorization");
 
 //registering
