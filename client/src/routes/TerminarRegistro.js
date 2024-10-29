@@ -150,7 +150,6 @@ export default function TerminarRegistro({ setAuth, setComplete }) {
         <button className="btn btn-primary mt-3" onClick={(e) => logout(e)}>
           Logout
         </button>
-        <button type="button" onClick={mostrar}>Mostrar Datos</button>
       </form>
     </>
   );
